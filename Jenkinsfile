@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo "Deploying to DEV environment"
                 sh "docker compose down -v"
-                sh "echo y | docker container prune"
+                sh "echo y | docker container prune -f"
                 
                 sh "docker compose up -d"
 
