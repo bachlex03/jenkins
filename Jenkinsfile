@@ -1,7 +1,7 @@
 pipeline {
     environment {
         dockerHubCredentials = 'chani'
-        dockerHubTag = "bale/chani-test"
+        dockerHubTag = "baledev/chani-test"
         imageVersion = "v1"
     }
 
