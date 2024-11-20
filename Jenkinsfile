@@ -17,6 +17,7 @@ pipeline {
         stage("Deploy image") {
             steps {
                 withDockerRegistry(credentialsId: "${dockerHubCredentials}", url: 'https://index.docker.io/v1/') {
+                    sh "docker ps -a"
                     sh label: 'build image', script: "docker build -t ${dockerHubTag}:${imageVersion} ."
                     sh label: 'push image', script: "docker push ${dockerHubTag}:${imageVersion}"
                 }
