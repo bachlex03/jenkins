@@ -1,0 +1,16 @@
+# version: "3.7"
+
+services:
+  app-nginx:
+    image: baledev/app-nginx
+    container_name: chani-nginx
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+
+  server:
+    image: baledev/server
+    container_name: chani-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
