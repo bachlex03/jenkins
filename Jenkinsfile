@@ -27,9 +27,15 @@ pipeline {
             }
         }
 
-        stage("Deploy to development") {
+        stage ("Deploy to DEV environment") {
             steps {
-                sh label: "Deploy to development", script: "docker compose up -d"
+                echo "Deploying to DEV environment"
+                sh "docker compose down -v"
+                sh "echo y | docker container prune"
+                
+                sh "docker compose up -d"
+
+                sh "docker ps -a"
             }
         }
     }
